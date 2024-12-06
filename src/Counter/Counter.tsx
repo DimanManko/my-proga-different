@@ -10,6 +10,7 @@ export const Counter = () => {
 
     const setLocalStorageHandler = () => {
         localStorage.setItem("counterValue", JSON.stringify(value));
+        localStorage.setItem("counterValue + 1", JSON.stringify(value + 1));
     }
 
     const getFromLocalStorageHandler = () => {
@@ -20,12 +21,22 @@ export const Counter = () => {
         }
     }
 
+    const clearLocalStorageHandler = () => {
+        localStorage.clear();
+        setValue(0);
+    }
+    const removeItemLocalStorageHandler = () => {
+        localStorage.removeItem("counterValue + 1")
+    }
+
     return (
         <div className="">
             <h1>{value}</h1>
             <button onClick={incHandler}>inc</button>
             <button onClick={setLocalStorageHandler}>setLocalStorage</button>
             <button onClick={getFromLocalStorageHandler}>getFromLocalStorage</button>
+            <button onClick={clearLocalStorageHandler}>clearLocalStorage</button>
+            <button onClick={removeItemLocalStorageHandler}>removeItemLocalStorage</button>
         </div>
     )
 }
