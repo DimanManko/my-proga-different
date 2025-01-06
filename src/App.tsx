@@ -1,24 +1,18 @@
 import React, {useState} from 'react';
 import './App.css';
-import {LoginPage} from "./Props/Login";
-import {HW3} from "./HW3/HW3";
-import {Counter} from "./Counter/Counter";
+import {Rating, ratingValueType} from "./Rating";
 import {Accordion} from "./Accordion";
-import {Rating} from "./Rating";
 
 
 function App() {
 
+    let [ratingValue, setratingValue] = useState<ratingValueType>(0)
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
 
     return (
         <div className="App">
-            {/*{< LoginPage/>}*/}
-            {/*{<HW3/>}*/}
-            {/*<Counter/>*/}
-            <input type="date"/>
-            <Accordion titleValue = {"Menu"} collapsed = {true}/>
-            <Accordion titleValue = {"User"} collapsed = {false}/>
-            <Rating value = {1}/>
+            <Rating value={ratingValue} onClick={setratingValue}/>
+            <Accordion title={"Menu"} collapsed={setAccordionCollapsed} value={accordionCollapsed}/>
         </div>
     );
 }
