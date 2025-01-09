@@ -7,8 +7,7 @@ export const ControlledInput = () => {
         <div>
             <input onChange={(event)=>{const actualValue = event.currentTarget.value;
                 setValue(actualValue);
-
-
+                
             }}/>{value}
         </div>
     )
